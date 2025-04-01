@@ -78,7 +78,7 @@ x > 0 : (((((log_2(x) ^ 2) / ln(x)) / log_3(x)) ^ 3) * (ln(x) / (log_3(x) / (log
 ### Порядок выполнения работы
 
 1. Разработать приложение, руководствуясь приведёнными выше правилами.
-2. С помощью `JUnit5` разработать тестовое покрытие системы функций, проведя **анализ эквивалентности** и учитывая особенности системы функций. Для анализа особенностей системы функций и составляющих ее частей можно использовать сайт [www.wolframalpha.com](https://www.wolframalpha.com/).
+2. С помощью `JUnit 5` разработать тестовое покрытие системы функций, проведя **анализ эквивалентности** и учитывая особенности системы функций. Для анализа особенностей системы функций и составляющих ее частей можно использовать сайт [www.wolframalpha.com](https://www.wolframalpha.com/).
 3. Собрать приложение, состоящее из заглушек. Провести интеграцию приложения по 1 модулю, с обоснованием стратегии интеграции, проведением интеграционных тестов и контролем тестового покрытия системы функций.
 
 ### Отчёт по работе должен содержать
@@ -103,7 +103,12 @@ x > 0 : (((((log_2(x) ^ 2) / ln(x)) / log_3(x)) ^ 3) * (ln(x) / (log_3(x) / (log
 
 | Ссылка | Описание |
 |---|---|
-| TODO | TODO |
+| [katalon.com/blog/integration-testing](https://katalon.com/resources-center/blog/integration-testing) | What is Integration Testing? Definition, How-to, Examples |
+| [guru99.com/equivalence-partitioning-boundary-value-analysis.html](https://web.archive.org/web/20250328095328/https://www.guru99.com/equivalence-partitioning-boundary-value-analysis.html) | Boundary Value Analysis and Equivalence Partitioning |
+| [site.mockito.org](https://site.mockito.org/) | Примеры с `Mockito` |
+| [www.baeldung.com/parameterized-tests-junit-5](https://www.baeldung.com/parameterized-tests-junit-5) | Guide to `JUnit 5` Parameterized Tests |
+| [mathworld.wolfram.com/TaylorSeries.html](https://mathworld.wolfram.com/TaylorSeries.html) | Разложение тригонометрических функций в ряды Тейлора |
+| [wikipedia.org/wiki/Natural_logarithm](https://en.wikipedia.org/wiki/Natural_logarithm#Series) | Ряды для натурального логарифма и преобразования между разными основаниями |
 
 ## Лицензия <a name="license"></a>
 
