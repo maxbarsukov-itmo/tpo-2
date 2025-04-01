@@ -51,20 +51,20 @@ $$
 <details>
   <summary><i>Упрощённое выражение</i></summary>
 
-  $$
-  f(x) =
-  \begin{cases}
-  \Bigl( \bigl( \tan x - \sec x - \csc x \bigr)^2 - \tan x \Bigr)
-  \cdot
-  \Bigl( \frac{\sin x}{\tan x} - \frac{\tan x}{\cos x} \Bigr)
-  & \text{при } x \leq 0
-  \\
-  \left( \frac{(\log_2 x)^2}{\ln x \, \log_3 x} \right)^{\!3}
-  \cdot
-  \frac{\ln x \cdot \log_2 x}{\log_3 x \cdot \log_{10} x}
-  & \text{при } x > 0
-  \end{cases}
-  $$
+$$
+f(x) =
+\begin{cases}
+\Bigl( \bigl( \tan x - \sec x - \csc x \bigr)^2 - \tan x \Bigr)
+\cdot
+\Bigl( \frac{\sin x}{\tan x} - \frac{\tan x}{\cos x} \Bigr)
+& \text{при } x \leq 0
+\\
+\left( \frac{(\log_2 x)^2}{\ln x \, \log_3 x} \right)^{\!3}
+\cdot
+\frac{\ln x \cdot \log_2 x}{\log_3 x \cdot \log_{10} x}
+& \text{при } x > 0
+\end{cases}
+$$
 
 </details>
 
