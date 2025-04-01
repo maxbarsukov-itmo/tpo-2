@@ -43,7 +43,7 @@ nb-configuration.xml
 atlassian-ide-plugin.xml
 
 ### VS Code ###
-.vscode/
+.vscode/*
 .code-workspace
 !.vscode/launch.json
 !.vscode/settings.json
