@@ -14,24 +14,83 @@
 
 Провести интеграционное тестирование программы, осуществляющей вычисление системы функций (в соответствии с вариантом).
 
-TODO
+Функция определяется как:
+
+$$
+f(x) =
+\begin{cases}
+\left(
+  \left(
+    \left( \tan(x) - \sec(x) \right) - \csc(x)
+  \right)^{\!2} - \tan(x)
+\right)
+\cdot
+\left(
+  \frac{\sin(x)}{\tan(x)} - \frac{\tan(x)}{\cos(x)}
+\right)
+& \text{при } x \leq 0
+\\
+\left(
+  \left(
+    \frac{(\log_2 x)^2}{\ln x} \bigg/ \log_3 x
+  \right)^{\!3}
+\right)
+\cdot
+\left(
+  \frac{\ln x}{
+    \log_3 x \big/ \left(
+      \frac{\log_{10} x}{\log_2 x}
+    \right)
+  }
+\right)
+& \text{при } x > 0
+\end{cases}
+$$
+
+
+<details>
+  <summary><i>Упрощённое выражение</i></summary>
+
+  $$
+  f(x) =
+  \begin{cases}
+  \Bigl( \bigl( \tan x - \sec x - \csc x \bigr)^2 - \tan x \Bigr)
+  \cdot
+  \Bigl( \frac{\sin x}{\tan x} - \frac{\tan x}{\cos x} \Bigr)
+  & \text{при } x \leq 0
+  \\
+  \left( \frac{(\log_2 x)^2}{\ln x \, \log_3 x} \right)^{\!3}
+  \cdot
+  \frac{\ln x \cdot \log_2 x}{\log_3 x \cdot \log_{10} x}
+  & \text{при } x > 0
+  \end{cases}
+  $$
+
+</details>
+
+```text
+x <= 0 : (((((tan(x) - sec(x)) - csc(x)) ^ 2) - tan(x)) * ((sin(x) / tan(x)) - (tan(x) / cos(x))))
+x > 0 : (((((log_2(x) ^ 2) / ln(x)) / log_3(x)) ^ 3) * (ln(x) / (log_3(x) / (log_10(x) / log_2(x)))))
+```
 
 ### Правила выполнения работы
 
 1. Все составляющие систему функции (как тригонометрические, так и логарифмические) должны быть выражены через **базовые** (тригонометрическая зависит от варианта; логарифмическая – натуральный логарифм).
 2. Структура приложения, тестируемого в рамках лабораторной работы, должна выглядеть следующим образом (пример приведён для базовой тригонометрической функции `sin(x)`):
 
-<picture>
-  <source
-    srcset="./.resources/example-white.png"
-    media="(prefers-color-scheme: dark)"
-  />
-  <source
-    srcset="./.resources/example.png"
-    media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-  />
-  <img src="./.resources/example.png" alt="Пример для базовой тригонометрической функции sin(x))" height="200" />
-</picture>
+<p align="center">
+  <picture>
+    <source
+      srcset="./.resources/example-white.png"
+      media="(prefers-color-scheme: dark)"
+    />
+    <source
+      srcset="./.resources/example.png"
+      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+    />
+    <img src="./.resources/example.png" alt="Пример для базовой тригонометрической функции sin(x))" height="350" />
+  </picture>
+</p>
 
 3. Обе «базовые» функции (в примере выше – `sin(x)` и `ln(x)`) должны быть реализованы при помощи разложения в ряд с задаваемой погрешностью. Использовать тригонометрические / логарифмические преобразования для упрощения функций **запрещено**.
 4. Для **каждого** модуля должны быть реализованы табличные заглушки. При этом, необходимо найти область допустимых значений функций, и, при необходимости, определить взаимозависимые точки в модулях.
@@ -58,6 +117,8 @@ TODO
 3. Концепции и подходы, используемые при реализации интеграционного тестирования.
 4. Программные продукты, используемые для реализации интеграционного тестирования. Использование `JUnit` для интеграционных тестов.
 5. Автоматизация интеграционных тестов. ПО, используемое для автоматизации интеграционного тестирования.
+
+---
 
 ## Полезные ссылки
 
