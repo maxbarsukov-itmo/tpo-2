@@ -103,6 +103,9 @@ x > 0 : (((((log_2(x) ^ 2) / ln(x)) / log_3(x)) ^ 3) * (ln(x) / (log_3(x) / (log
 
 | Ссылка | Описание |
 |---|---|
+| [github.com/RedGry/ITMO/TPO/ТПО 2 - Подготовка.pdf](https://github.com/RedGry/ITMO/blob/master/TPO/docs/%D0%A2%D0%9F%D0%9E%202%20-%20%D0%9F%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0.pdf) | Подготовка к защите ЛР 2 |
+| [github.com/band-of-four/cheatsheets/testing/lab2.md](https://github.com/band-of-four/cheatsheets/blob/master/testing/lab2.md) | Ответы на вопросы с [se.ifmo.ru](https://se.ifmo.ru/courses/testing#labs) |
+| [youtu.be/nU1Rvo8YyeY](https://www.youtube.com/watch?v=nU1Rvo8YyeY&ab_channel=SergeKlimenkov) | Лекция ТПО #3. Модульное и интеграционное тестирование |
 | [katalon.com/blog/integration-testing](https://katalon.com/resources-center/blog/integration-testing) | What is Integration Testing? Definition, How-to, Examples |
 | [guru99.com/equivalence-partitioning-boundary-value-analysis.html](https://web.archive.org/web/20250328095328/https://www.guru99.com/equivalence-partitioning-boundary-value-analysis.html) | Boundary Value Analysis and Equivalence Partitioning |
 | [site.mockito.org](https://site.mockito.org/) | Примеры с `Mockito` |
