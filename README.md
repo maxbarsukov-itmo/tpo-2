@@ -51,6 +51,8 @@ $$
 <details>
   <summary><i>Упрощённое выражение</i></summary>
 
+  Функция определяется как:
+
   $$
   f(x) =
   \begin{cases}
