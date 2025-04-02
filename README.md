@@ -99,6 +99,28 @@ x > 0 : (((((log_2(x) ^ 2) / ln(x)) / log_3(x)) ^ 3) * (ln(x) / (log_3(x) / (log
 
 ---
 
+## Выполнение
+
+Тригонометрические функции:
+
+| Класс     | Зависимости   | Формула       |
+|-----------|---------------|---------------|
+| [`Sine`](./src/main/java/ru/itmo/qa/lab2/trig/Sine.java)      | —             | Ряд Тейлора   |
+| [`Cosine`](./src/main/java/ru/itmo/qa/lab2/trig/Cosine.java)    | `Sine`          | `sin(π/2 - x)`  |
+| [`Cosecant`](./src/main/java/ru/itmo/qa/lab2/trig/Cosecant.java)  | `Sine`          | `1/sin(x)`      |
+| [`Secant`](./src/main/java/ru/itmo/qa/lab2/trig/Secant.java)    | `Cosine`        |  `1/cos(x)`     |
+| [`Tangent`](./src/main/java/ru/itmo/qa/lab2/trig/Tangent.java)   | `Sine` + `Cosine` | `sin(x)/cos(x)` |
+| [`Cotangent`](./src/main/java/ru/itmo/qa/lab2/trig/Cotangent.java) | `Sine` + `Cosine` | `cos(x)/sin(x)` |
+
+Логарифмические функции:
+
+| Класс | Зависимости | Формула | Особенности реализации |
+|---|---|---|---|
+| [`NaturalLogarithm`](./src/main/java/ru/itmo/qa/lab2/log/NaturalLogarithm.java) | — | Ряд Тейлора для `ln(1+x)` | Использует преобразование аргумента через `(x-1)/(x+1)` |
+| [`BaseNLogarithm`](./src/main/java/ru/itmo/qa/lab2/log/BaseNLogarithm.java) | `NaturalLogarithm` | `logₐ(x) = ln(x)/ln(a)` | Поддерживает произвольное основание через конструктор |
+
+---
+
 ## Полезные ссылки
 
 | Ссылка | Описание |
