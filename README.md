@@ -1,5 +1,7 @@
 # Лабораторная работа 2
 
+[![Build & Test](https://github.com/maxbarsukov-itmo/tpo-2/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/maxbarsukov-itmo/tpo-2/actions/workflows/build-and-test.yml)
+
 ## Вариант `5157`
 
 <img alt="anime" src="./.resources/yui-hirasawa.gif" height="300">
@@ -22,7 +24,7 @@ f(x) =
 \left(
   \left(
     \left( \tan(x) - \sec(x) \right) - \csc(x)
-  \right)^{\!2} - \tan(x)
+  \right)^{\2} - \tan(x)
 \right)
 \cdot
 \left(
@@ -33,7 +35,7 @@ f(x) =
 \left(
   \left(
     \frac{(\log_2 x)^2}{\ln x} \bigg/ \log_3 x
-  \right)^{\!3}
+  \right)^{\3}
 \right)
 \cdot
 \left(
