@@ -1,11 +1,13 @@
 package ru.itmo.qa.lab2.util;
 
+import lombok.Getter;
 import lombok.SneakyThrows;
 import ru.itmo.qa.lab2.function.AbstractFunction;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Locale;
 
@@ -14,6 +16,7 @@ import static java.lang.String.format;
 public class CSVGraphWriter {
   private final BufferedWriter writer;
   private final AbstractFunction function;
+  @Getter
   private final String filePath;
 
   public CSVGraphWriter(AbstractFunction function, String outputDir) {
@@ -32,7 +35,7 @@ public class CSVGraphWriter {
     return outputDir + function.getClass().getSimpleName() + ".csv";
   }
 
-  @SneakyThrows
+  @SneakyThrows(IOException.class)
   private BufferedWriter createWriter() {
     File file = new File(filePath);
     file.getParentFile().mkdirs();
@@ -44,11 +47,7 @@ public class CSVGraphWriter {
     }
   }
 
-  public String getFilePath() {
-    return filePath;
-  }
-
-  @SneakyThrows
+  @SneakyThrows(IOException.class)
   public void write(BigDecimal x1, BigDecimal x2, BigDecimal d, BigDecimal precision) {
     try {
       writer.write("x,y");
