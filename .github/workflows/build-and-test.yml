@@ -25,9 +25,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
       - name: Build with Gradle
-        run: |
-          chmod +x gradlew
-          ./gradlew clean build --stacktrace
+        uses: coactions/setup-xvfb@v1
+        with:
+          run: |
+            chmod +x gradlew
+            ./gradlew clean build --stacktrace
 
   tests:
     name: Run Tests
