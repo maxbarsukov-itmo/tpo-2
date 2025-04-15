@@ -1,3 +1,6 @@
+# Project
+plots/*
+
 # Directories
 build/
 *.class
@@ -42,7 +45,7 @@ nb-configuration.xml
 .idea/
 atlassian-ide-plugin.xml
 
-### VS Code ###
+# VS Code
 .vscode/*
 .code-workspace
 !.vscode/launch.json
