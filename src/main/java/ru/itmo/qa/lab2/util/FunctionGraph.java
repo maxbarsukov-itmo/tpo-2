@@ -4,6 +4,7 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.ValueMarker;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
@@ -22,7 +23,16 @@ public class FunctionGraph extends JFrame {
 
   public FunctionGraph(String applicationTitle, String chartTitle, String csvFilePath) {
     super(applicationTitle);
-    XYDataset dataset = createDataset(csvFilePath);
+    XYDataset dataset = createDataset(csvFilePath, false);
+    JFreeChart chart = createChart(dataset, chartTitle);
+    ChartPanel chartPanel = new ChartPanel(chart);
+    chartPanel.setPreferredSize(new Dimension(800, 600));
+    setContentPane(chartPanel);
+  }
+
+  public FunctionGraph(String applicationTitle, String chartTitle, String csvFilePath, boolean trim) {
+    super(applicationTitle);
+    XYDataset dataset = createDataset(csvFilePath, trim);
     JFreeChart chart = createChart(dataset, chartTitle);
     ChartPanel chartPanel = new ChartPanel(chart);
     chartPanel.setPreferredSize(new Dimension(800, 600));
@@ -30,6 +40,10 @@ public class FunctionGraph extends JFrame {
   }
 
   public static XYDataset createDataset(String csvFilePath) {
+    return createDataset(csvFilePath, false);
+  }
+
+  public static XYDataset createDataset(String csvFilePath, boolean trim) {
     XYSeries series = new XYSeries("f(x)");
     Path path = Paths.get(csvFilePath);
 
@@ -43,7 +57,9 @@ public class FunctionGraph extends JFrame {
           try {
             double x = Double.parseDouble(values[0].trim());
             double y = Double.parseDouble(values[1].trim());
-            series.add(x, y);
+            if (!trim || Math.abs(y) <= 100) {
+              series.add(x, y);
+            }
           } catch (NumberFormatException e) {
             System.err.println("Skipping malformed line: " + line);
           }
@@ -82,6 +98,17 @@ public class FunctionGraph extends JFrame {
     plot.setBackgroundPaint(Color.WHITE);
     plot.setDomainGridlinePaint(Color.LIGHT_GRAY);
     plot.setRangeGridlinePaint(Color.LIGHT_GRAY);
+
+    ValueMarker xMarker = new ValueMarker(0);
+    xMarker.setPaint(Color.GRAY);
+    xMarker.setStroke(new BasicStroke(1.5f));
+
+    ValueMarker yMarker = new ValueMarker(0);
+    yMarker.setPaint(Color.GRAY);
+    yMarker.setStroke(new BasicStroke(1.5f));
+
+    plot.addDomainMarker(xMarker);
+    plot.addRangeMarker(yMarker);
 
     plot.getRenderer().setSeriesPaint(0, Color.BLUE);
     plot.getRenderer().setSeriesStroke(0, new BasicStroke(2.0f));
