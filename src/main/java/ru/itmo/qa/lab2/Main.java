@@ -86,7 +86,7 @@ public class Main {
       }
     };
 
-    List<String> trimFunctions = List.of("tan(x)", "cot(x)", "sec(x)", "csc(x)");
+    List<String> trimFunctions = List.of("tan(x)", "cot(x)", "sec(x)", "csc(x)", "f(x)");
 
     for (Map.Entry<AbstractFunction, String> entry : functionMap.entrySet()) {
       CSVGraphWriter writer = new CSVGraphWriter(entry.getKey(), outputDir);

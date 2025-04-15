@@ -3,6 +3,7 @@ package ru.itmo.qa.lab2.util;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.ValueMarker;
 import org.jfree.chart.plot.XYPlot;
@@ -20,11 +21,12 @@ import java.nio.file.Paths;
 public class FunctionGraph extends JFrame {
 
   private static final long serialVersionUID = 1L;
+  private static final int TRIM_MAX_Y = 100;
 
   public FunctionGraph(String applicationTitle, String chartTitle, String csvFilePath) {
     super(applicationTitle);
-    XYDataset dataset = createDataset(csvFilePath, false);
-    JFreeChart chart = createChart(dataset, chartTitle);
+    XYDataset dataset = createDataset(csvFilePath);
+    JFreeChart chart = createChart(dataset, chartTitle, false);
     ChartPanel chartPanel = new ChartPanel(chart);
     chartPanel.setPreferredSize(new Dimension(800, 600));
     setContentPane(chartPanel);
@@ -32,18 +34,14 @@ public class FunctionGraph extends JFrame {
 
   public FunctionGraph(String applicationTitle, String chartTitle, String csvFilePath, boolean trim) {
     super(applicationTitle);
-    XYDataset dataset = createDataset(csvFilePath, trim);
-    JFreeChart chart = createChart(dataset, chartTitle);
+    XYDataset dataset = createDataset(csvFilePath);
+    JFreeChart chart = createChart(dataset, chartTitle, trim);
     ChartPanel chartPanel = new ChartPanel(chart);
     chartPanel.setPreferredSize(new Dimension(800, 600));
     setContentPane(chartPanel);
   }
 
   public static XYDataset createDataset(String csvFilePath) {
-    return createDataset(csvFilePath, false);
-  }
-
-  public static XYDataset createDataset(String csvFilePath, boolean trim) {
     XYSeries series = new XYSeries("f(x)");
     Path path = Paths.get(csvFilePath);
 
@@ -57,9 +55,7 @@ public class FunctionGraph extends JFrame {
           try {
             double x = Double.parseDouble(values[0].trim());
             double y = Double.parseDouble(values[1].trim());
-            if (!trim || Math.abs(y) <= 100) {
-              series.add(x, y);
-            }
+            series.add(x, y);
           } catch (NumberFormatException e) {
             System.err.println("Skipping malformed line: " + line);
           }
@@ -79,10 +75,14 @@ public class FunctionGraph extends JFrame {
   }
 
   public static JFreeChart createChart(XYDataset dataset, String title) {
+    return createChart(dataset, title, false);
+  }
+
+  public static JFreeChart createChart(XYDataset dataset, String title, boolean trim) {
     JFreeChart chart = ChartFactory.createXYLineChart(
         title,
-        "X Axis",
-        "Y Axis",
+        "X",
+        "Y",
         dataset,
         PlotOrientation.VERTICAL,
         true,
@@ -91,6 +91,13 @@ public class FunctionGraph extends JFrame {
 
     XYPlot plot = chart.getXYPlot();
     customizePlot(plot);
+
+    if (trim) {
+      ValueAxis rangeAxis = plot.getRangeAxis();
+      rangeAxis.setRange(-TRIM_MAX_Y, TRIM_MAX_Y);
+      rangeAxis.setAutoRange(false);
+    }
+
     return chart;
   }
 
