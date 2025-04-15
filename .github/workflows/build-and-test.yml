@@ -51,6 +51,7 @@ jobs:
             ${{ runner.os }}-gradle-
       - name: Run Tests
         uses: coactions/setup-xvfb@v1
-        run: |
-          chmod +x gradlew
-          ./gradlew clean test
+        with:
+          run: |
+            chmod +x gradlew
+            ./gradlew clean test
